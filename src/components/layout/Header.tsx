@@ -1,75 +1,69 @@
 import React, { useState } from 'react';
-import { DesktopNavigation } from './DesktopNavigation';
-import { MobileNavigation } from './MobileNavigation';
-import { MobileMenu } from './MobileMenu';
-import { navigationData } from '../../data/navigationData';
+import { Menu, X, Phone, Mail } from 'lucide-react';
 
 export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="box-border caret-transparent">
-      <div className="box-border caret-transparent">
-        <div className="box-border caret-transparent col-end-[-1] col-start-1 max-w-[375px] md:max-w-screen-xl">
-          <div className="relative box-border caret-transparent z-10">
-            <DesktopNavigation />
-            <div className="box-border caret-transparent">
-              <div className="relative bg-white shadow-none box-border caret-transparent flex w-full z-40 mt-1 mb-[3px] md:shadow-[rgba(0,0,0,0.08)_0px_3px_4px_-1px]">
-                <div className="box-border caret-transparent flex justify-center min-h-0 min-w-0 w-full px-6 md:min-h-[auto] md:min-w-[auto] md:px-12">
-                  <div className="items-center box-border caret-transparent gap-x-0 grid grid-cols-[repeat(4,minmax(0px,1fr))] justify-items-center min-h-0 min-w-0 gap-y-0 w-full md:grid-cols-[repeat(12,minmax(0px,1fr))] md:min-h-[auto] md:min-w-[auto] md:w-[1128px]">
-                    <div className="items-center box-border caret-transparent flex col-end-[-1] col-start-1 min-h-0 min-w-0 w-full md:min-h-[30px] md:min-w-[auto]">
-                      <div className="font-medium box-border caret-transparent gap-x-3 hidden min-h-0 min-w-0 gap-y-3 md:flex md:min-h-[auto] md:min-w-[auto]">
-                        {navigationData.mainCategories.map((category) => (
-                          <div key={category.id} className="box-border caret-transparent gap-x-2.5 min-h-0 min-w-0 gap-y-2.5 pb-2.5 px-1 md:min-h-[auto] md:min-w-[auto]">
-                            <span className="box-border caret-transparent">
-                              <a href={category.href} className="text-[color(srgb_0.156863_0.156863_0.152941)] text-sm box-border caret-transparent leading-5">
-                                {category.label}
-                              </a>
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="box-border caret-transparent flex justify-center">
-                <div className="absolute bg-white shadow-none box-border caret-transparent hidden justify-center max-w-none w-full z-30 mt-auto mb-2 mx-auto px-6 top-[100px] md:shadow-[rgba(0,0,0,0.08)_3px_3px_4px_-1px,rgba(0,0,0,0.08)_-3px_3px_4px_-1px] md:max-w-[1224px] md:px-12">
-                  <div className="items-center box-border caret-transparent gap-x-6 grid grid-cols-[repeat(4,minmax(0px,1fr))] justify-items-center w-full md:grid-cols-[repeat(12,minmax(0px,1fr))] md:w-[1128px]"></div>
-                </div>
-                <div className="absolute bg-white shadow-none box-border caret-transparent hidden justify-center max-w-none w-full z-30 mt-auto mb-2 mx-auto px-6 top-[100px] md:shadow-[rgba(0,0,0,0.08)_3px_3px_4px_-1px,rgba(0,0,0,0.08)_-3px_3px_4px_-1px] md:max-w-[1224px] md:px-12">
-                  <div className="items-center box-border caret-transparent gap-x-6 grid grid-cols-[repeat(4,minmax(0px,1fr))] justify-items-center w-full md:grid-cols-[repeat(12,minmax(0px,1fr))] md:w-[1128px]"></div>
-                </div>
-                <div className="absolute bg-white shadow-none box-border caret-transparent hidden justify-center max-w-none w-full z-30 mt-auto mb-2 mx-auto px-6 top-[100px] md:shadow-[rgba(0,0,0,0.08)_3px_3px_4px_-1px,rgba(0,0,0,0.08)_-3px_3px_4px_-1px] md:max-w-[1224px] md:px-12">
-                  <div className="items-center box-border caret-transparent gap-x-6 grid grid-cols-[repeat(4,minmax(0px,1fr))] justify-items-center w-full md:grid-cols-[repeat(12,minmax(0px,1fr))] md:w-[1128px]"></div>
-                </div>
-                <div className="absolute bg-white shadow-none box-border caret-transparent hidden justify-center max-w-none w-full z-30 mt-auto mb-2 mx-auto px-6 top-[100px] md:shadow-[rgba(0,0,0,0.08)_3px_3px_4px_-1px,rgba(0,0,0,0.08)_-3px_3px_4px_-1px] md:max-w-[1224px] md:px-12">
-                  <div className="items-center box-border caret-transparent gap-x-6 grid grid-cols-[repeat(4,minmax(0px,1fr))] justify-items-center w-full md:grid-cols-[repeat(12,minmax(0px,1fr))] md:w-[1128px]"></div>
-                </div>
-                <div className="absolute bg-white shadow-none box-border caret-transparent hidden justify-center max-w-none w-full z-30 mt-auto mb-2 mx-auto px-6 top-[100px] md:shadow-[rgba(0,0,0,0.08)_3px_3px_4px_-1px,rgba(0,0,0,0.08)_-3px_3px_4px_-1px] md:max-w-[1224px] md:px-12">
-                  <div className="items-center box-border caret-transparent gap-x-6 grid grid-cols-[repeat(4,minmax(0px,1fr))] justify-items-center w-full md:grid-cols-[repeat(12,minmax(0px,1fr))] md:w-[1128px]"></div>
-                </div>
-              </div>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/50">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
+          {/* Logo */}
+          <div className="flex items-center">
+            <div className="bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold text-2xl px-4 py-2 rounded-xl shadow-lg">
+              NestiClub
             </div>
           </div>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-8">
+            <a href="#services" className="text-slate-700 hover:text-cyan-600 font-medium transition-colors">Service Stack</a>
+            <a href="#membership" className="text-slate-700 hover:text-cyan-600 font-medium transition-colors">Membership</a>
+            <a href="#manor-agent" className="text-slate-700 hover:text-cyan-600 font-medium transition-colors">Manor Agent</a>
+            <a href="#testimonials" className="text-slate-700 hover:text-cyan-600 font-medium transition-colors">Testimonials</a>
+          </nav>
+
+          {/* Contact & CTA */}
+          <div className="hidden lg:flex items-center space-x-4">
+            <div className="flex items-center space-x-3 text-sm text-slate-600">
+              <div className="flex items-center space-x-1">
+                <Phone className="w-4 h-4" />
+                <span>24/7 Concierge</span>
+              </div>
+              <div className="flex items-center space-x-1">
+                <Mail className="w-4 h-4" />
+                <span>Premium Support</span>
+              </div>
+            </div>
+            <button className="bg-gradient-to-r from-cyan-600 to-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold hover:from-cyan-700 hover:to-blue-800 transition-all duration-200 shadow-lg hover:shadow-xl">
+              Join NestiClub
+            </button>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="lg:hidden p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
-        <MobileNavigation 
-          onMenuToggle={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        />
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden py-4 border-t border-slate-200">
+            <nav className="flex flex-col space-y-4">
+              <a href="#services" className="text-slate-700 hover:text-cyan-600 font-medium">Service Stack</a>
+              <a href="#membership" className="text-slate-700 hover:text-cyan-600 font-medium">Membership</a>
+              <a href="#manor-agent" className="text-slate-700 hover:text-cyan-600 font-medium">Manor Agent</a>
+              <a href="#testimonials" className="text-slate-700 hover:text-cyan-600 font-medium">Testimonials</a>
+              <button className="bg-gradient-to-r from-cyan-600 to-blue-700 text-white px-6 py-2.5 rounded-lg font-semibold mt-4 w-full">
+                Join NestiClub
+              </button>
+            </nav>
+          </div>
+        )}
       </div>
-      
-      {/* Mobile Menus */}
-      <MobileMenu 
-        isOpen={isUserMenuOpen}
-        onClose={() => setIsUserMenuOpen(false)}
-        type="user"
-      />
-      <MobileMenu 
-        isOpen={isMobileMenuOpen}
-        onClose={() => setIsMobileMenuOpen(false)}
-        type="navigation"
-      />
-    </nav>
+    </header>
   );
 }

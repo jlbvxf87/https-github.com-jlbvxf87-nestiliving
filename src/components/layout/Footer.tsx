@@ -1,178 +1,133 @@
-import React, { useState } from 'react';
-import { footerData } from '../../data/footerData';
+import React from 'react';
+import { Phone, Mail, MapPin, Instagram, Twitter, Linkedin } from 'lucide-react';
+
+const footerLinks = {
+  services: [
+    'Home Management',
+    'Luxury Travel',
+    'Personal Concierge',
+    'Transportation',
+    'Dining & Events',
+    'Security Services'
+  ],
+  membership: [
+    'Essential Tier',
+    'Elite Tier',
+    'Platinum Tier',
+    'Corporate Memberships',
+    'Gift Memberships'
+  ],
+  company: [
+    'About NestiClub',
+    'Our Team',
+    'Careers',
+    'Press',
+    'Contact Us'
+  ],
+  legal: [
+    'Privacy Policy',
+    'Terms of Service',
+    'Member Agreement',
+    'Cookie Policy'
+  ]
+};
 
 export function Footer() {
-  const [email, setEmail] = useState('');
-  const [zipCode, setZipCode] = useState('97818');
-
   return (
-    <footer className="box-border caret-transparent">
-      <div className="box-border caret-transparent">
-        <div className="bg-zinc-50 box-border caret-transparent">
-          <div className="box-border caret-transparent">
-            <div className="box-content caret-black block justify-normal w-auto px-0 md:aspect-auto md:box-border md:caret-transparent md:flex md:justify-center md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:px-12 md:scroll-m-0 md:scroll-p-[auto]">
-              <div className="[align-items:normal] box-content caret-black gap-x-[normal] block grid-cols-none min-h-0 min-w-0 w-auto md:items-center md:aspect-auto md:box-border md:caret-transparent md:gap-x-6 md:grid md:grid-cols-[repeat(12,minmax(0px,1fr))] md:justify-items-center md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[1128px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                <div className="self-auto box-content caret-black block col-end-auto col-start-auto min-h-0 min-w-0 mr-0 my-0 md:self-start md:aspect-auto md:box-border md:caret-transparent md:flex md:col-end-[-1] md:col-start-1 md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:mr-auto md:my-8 md:scroll-m-0 md:scroll-p-[auto]">
-                  <div aria-label="Top cities" className="box-content caret-black block flex-nowrap grid-cols-none min-h-0 min-w-0 md:aspect-auto md:box-border md:caret-transparent md:flex md:flex-wrap md:grid-cols-[repeat(2,minmax(0px,1fr))] md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                    <div className="font-normal box-content caret-black min-h-0 min-w-0 my-0 pr-0 md:font-bold md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:my-auto md:pr-[7px] md:scroll-m-0 md:scroll-p-[auto]">Top cities</div>
-                    {footerData.topCities.map((city) => (
-                      <div key={city.id} className="box-content caret-black block min-h-0 min-w-0 md:aspect-auto md:box-border md:caret-transparent md:flex md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                        <span className="box-content caret-black inline min-h-0 min-w-0 md:aspect-auto md:box-border md:caret-transparent md:block md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">|</span>
-                        <a href={city.href} className="text-black box-content caret-black gap-x-[normal] inline leading-[normal] min-h-0 min-w-0 gap-y-[normal] px-0 md:aspect-auto md:box-border md:caret-transparent md:gap-x-2 md:flex md:leading-5 md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:m-auto md:px-[7px] md:scroll-m-0 md:scroll-p-[auto] hover:text-neutral-500">{city.name}</a>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+    <footer className="bg-slate-900 text-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+        <div className="grid lg:grid-cols-5 gap-8">
+          {/* Brand */}
+          <div className="lg:col-span-2">
+            <div className="bg-gradient-to-r from-cyan-600 to-blue-700 text-white font-bold text-2xl px-4 py-2 rounded-xl shadow-lg inline-block mb-6">
+              NestiClub
+            </div>
+            
+            <p className="text-slate-300 mb-6 leading-relaxed">
+              Premium hospitality and concierge services for discerning clients. 
+              Experience luxury, convenience, and exceptional service.
+            </p>
+
+            <div className="space-y-3">
+              <div className="flex items-center text-slate-300">
+                <Phone className="w-5 h-5 mr-3 text-cyan-400" />
+                <span>+1 (555) 123-NESTI</span>
+              </div>
+              <div className="flex items-center text-slate-300">
+                <Mail className="w-5 h-5 mr-3 text-cyan-400" />
+                <span>concierge@nesticlub.com</span>
+              </div>
+              <div className="flex items-center text-slate-300">
+                <MapPin className="w-5 h-5 mr-3 text-cyan-400" />
+                <span>Miami, FL | New York, NY | Los Angeles, CA</span>
               </div>
             </div>
           </div>
-          <div className="box-border caret-transparent w-full mt-8 px-6 md:w-auto md:mt-0 md:px-0">
-            <div className="box-content caret-black block justify-normal w-auto px-0 md:aspect-auto md:box-border md:caret-transparent md:flex md:justify-center md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:px-12 md:scroll-m-0 md:scroll-p-[auto]">
-              <div className="[align-items:normal] box-content caret-black gap-x-[normal] block grid-cols-none min-h-0 min-w-0 gap-y-[normal] w-auto md:items-center md:aspect-auto md:box-border md:caret-transparent md:gap-x-6 md:grid md:grid-cols-[repeat(12,minmax(0px,1fr))] md:justify-items-center md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:gap-y-0 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-[1128px] md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                <div className="self-auto box-content caret-black col-end-auto col-start-auto min-h-0 min-w-0 md:self-start md:aspect-auto md:box-border md:caret-transparent md:col-end-[span_4] md:col-start-[span_4] md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                  <div className="box-content caret-black rounded-none md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-center md:scroll-m-0 md:scroll-p-[auto] md:rounded-lg">
-                    <div className="box-content caret-black block flex-row pb-0 md:aspect-auto md:box-border md:caret-transparent md:flex md:flex-col md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:pb-8 md:scroll-m-0 md:scroll-p-[auto]">
-                      <div className="box-content caret-black min-h-0 min-w-0 md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                        <div className="text-black text-base font-normal box-content caret-black tracking-[normal] md:text-[color(srgb_0.156863_0.156863_0.152941)] md:text-xl md:font-bold md:aspect-auto md:box-border md:caret-transparent md:tracking-[-0.5px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                          Knowledge is priceless - so our cost guides are free.
-                        </div>
-                        <div className="text-black box-content caret-black leading-[normal] mt-0 md:text-[color(srgb_0.156863_0.156863_0.152941)] md:aspect-auto md:box-border md:caret-transparent md:leading-[22px] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:mt-3 md:scroll-m-0 md:scroll-p-[auto]">
-                          Sign up to get free project cost info in your inbox.
-                        </div>
-                      </div>
-                      <div className="box-content caret-black min-h-0 min-w-0 mt-0 md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:mt-5 md:scroll-m-0 md:scroll-p-[auto]">
-                        <div className="box-content caret-black gap-x-[normal] block flex-row gap-y-[normal] text-start md:aspect-auto md:box-border md:caret-transparent md:gap-x-2 md:flex md:flex-col md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2 md:snap-align-none md:snap-normal md:snap-none md:text-center md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                          <div className="[align-items:normal] box-content caret-black gap-x-[normal] min-h-0 min-w-0 gap-y-[normal] md:items-center md:aspect-auto md:box-border md:caret-transparent md:gap-x-2 md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                            <div className="box-content caret-black w-auto mb-0 md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:mb-2 md:scroll-m-0 md:scroll-p-[auto]">
-                              <div className="bg-transparent box-content caret-black gap-x-[normal] block h-auto gap-y-[normal] rounded-none md:aspect-auto md:bg-[color(srgb_1_1_1)] md:box-border md:caret-transparent md:gap-x-2 md:flex md:h-12 md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:border md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:rounded-bl md:rounded-br md:rounded-tl md:rounded-tr md:border-solid md:border-[color(srgb_0.737255_0.72549_0.705882)]">
-                                <div className="text-black [align-items:normal] box-content caret-black block h-auto justify-normal min-h-0 min-w-0 ml-0 py-0 md:text-[color(srgb_0.427451_0.427451_0.427451)] md:items-center md:aspect-auto md:box-border md:caret-transparent md:flex md:h-full md:justify-center md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:ml-4 md:py-5 md:scroll-m-0 md:scroll-p-[auto]">
-                                  <img src="https://c.animaapp.com/meutrjubuG3nXl/assets/icon-10.svg" alt="Icon" className="text-black box-content caret-black h-auto w-auto mr-0 md:text-[color(srgb_0.156863_0.156863_0.152941)] md:aspect-auto md:box-border md:caret-transparent md:h-6 md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-6 md:[mask-position:0%] md:bg-left-top md:mr-0.5 md:scroll-m-0 md:scroll-p-[auto]" />
-                                </div>
-                                <div className="static box-content caret-black grow-0 min-h-0 min-w-0 md:relative md:aspect-auto md:box-border md:caret-transparent md:grow md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                                  <label className="box-content caret-black grow-0 md:aspect-auto md:box-border md:caret-transparent md:grow md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                                    <input 
-                                      placeholder="Email address" 
-                                      type="email" 
-                                      value={email}
-                                      onChange={(e) => setEmail(e.target.value)}
-                                      className="text-black bg-white box-content caret-black h-auto leading-[normal] text-start text-clip text-wrap w-auto px-0.5 py-px rounded-none md:appearance-none md:text-[color(srgb_0.156863_0.156863_0.152941)] md:aspect-auto md:bg-transparent md:box-border md:caret-transparent md:h-full md:leading-4 md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:text-ellipsis md:underline-offset-auto md:text-nowrap md:w-full md:[mask-position:0%] md:bg-left-top md:pl-0 md:pr-4 md:py-0 md:scroll-m-0 md:scroll-p-[auto] md:rounded-bl md:rounded-br md:rounded-tl md:rounded-tr" 
-                                    />
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                            <div className="box-content caret-black md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                              <div className="bg-transparent box-content caret-black gap-x-[normal] block h-auto gap-y-[normal] rounded-none md:aspect-auto md:bg-[color(srgb_1_1_1)] md:box-border md:caret-transparent md:gap-x-2 md:flex md:h-12 md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:border md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] md:rounded-bl md:rounded-br md:rounded-tl md:rounded-tr md:border-solid md:border-[color(srgb_0.737255_0.72549_0.705882)]">
-                                <div className="text-black [align-items:normal] box-content caret-black block h-auto justify-normal min-h-0 min-w-0 ml-0 py-0 md:text-[color(srgb_0.427451_0.427451_0.427451)] md:items-center md:aspect-auto md:box-border md:caret-transparent md:flex md:h-full md:justify-center md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:ml-4 md:py-5 md:scroll-m-0 md:scroll-p-[auto]">
-                                  <img src="https://c.animaapp.com/meutrjubuG3nXl/assets/icon-11.svg" alt="Icon" className="text-black box-content caret-black h-auto w-auto md:text-[color(srgb_0.156863_0.156863_0.152941)] md:aspect-auto md:box-border md:caret-transparent md:h-6 md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-6 md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]" />
-                                </div>
-                                <div className="static box-content caret-black grow-0 min-h-0 min-w-0 md:relative md:aspect-auto md:box-border md:caret-transparent md:grow md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                                  <label className="box-content caret-black grow-0 md:aspect-auto md:box-border md:caret-transparent md:grow md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                                    <input 
-                                      placeholder="Zip code" 
-                                      type="number" 
-                                      value={zipCode}
-                                      onChange={(e) => setZipCode(e.target.value)}
-                                      className="text-black bg-white box-content caret-black h-auto leading-[normal] text-start text-clip text-wrap w-auto px-0.5 py-px rounded-none md:appearance-none md:text-[color(srgb_0.156863_0.156863_0.152941)] md:aspect-auto md:bg-transparent md:box-border md:caret-transparent md:h-full md:leading-4 md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:text-ellipsis md:underline-offset-auto md:text-nowrap md:w-full md:[mask-position:0%] md:bg-left-top md:pl-0 md:pr-4 md:py-0 md:scroll-m-0 md:scroll-p-[auto] md:rounded-bl md:rounded-br md:rounded-tl md:rounded-tr" 
-                                    />
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <button name="Sign me up" type="button" className="text-black font-normal [align-items:normal] bg-zinc-100 caret-black gap-x-[normal] inline-block h-auto justify-normal min-h-0 min-w-0 gap-y-[normal] align-baseline w-auto px-1.5 py-px rounded-none md:text-white md:font-bold md:items-center md:aspect-auto md:bg-gradient-to-r md:from-coral-500 md:to-pink-500 hover:md:from-coral-600 hover:md:to-pink-600 md:transition-all md:duration-200 md:shadow-lg md:caret-transparent md:gap-x-2.5 md:flex md:h-fit md:justify-center md:min-h-[auto] md:min-w-[107px] md:break-words md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2.5 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:align-top md:w-full md:[mask-position:0%] md:bg-left-top md:px-8 md:py-3 md:scroll-m-0 md:scroll-p-[auto] md:rounded-bl md:rounded-br md:rounded-tl md:rounded-tr">
-                            Sign me up
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="box-content caret-black mt-0 md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:mt-8 md:scroll-m-0 md:scroll-p-[auto]">
-                    <h4 className="text-base font-bold box-content caret-black block md:text-xl md:font-medium md:aspect-auto md:box-border md:caret-transparent md:hidden md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">Get our Angi-powered app</h4>
-                    <div className="box-content caret-black text-start mb-0 md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:text-center md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:mb-4 md:scroll-m-0 md:scroll-p-[auto]">Download the app</div>
-                    <div className="box-content caret-black gap-x-[normal] block justify-normal gap-y-[normal] px-0 md:aspect-auto md:box-border md:caret-transparent md:gap-x-2 md:flex md:justify-evenly md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:px-8 md:scroll-m-0 md:scroll-p-[auto]">
-                      <div className="box-content caret-black min-h-0 min-w-0 md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                        <a href="https://member.angi.com/app/text_to_download" className="box-content caret-black no-underline md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:underline md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] hover:text-neutral-500 hover:no-underline">
-                          <img src="https://c.animaapp.com/meutrjubuG3nXl/assets/app-store-badge-60@2x.png" alt="App Store" className="box-content caret-black max-w-none md:aspect-auto md:box-border md:caret-transparent md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]" />
-                        </a>
-                      </div>
-                      <div className="box-content caret-black min-h-0 min-w-0 md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                        <a href="https://member.angi.com/app/text_to_download" className="box-content caret-black no-underline md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:underline md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] hover:text-neutral-500 hover:no-underline">
-                          <img src="https://c.animaapp.com/meutrjubuG3nXl/assets/google-play-badge-60@2x.png" alt="Google Play" className="box-content caret-black max-w-none md:aspect-auto md:box-border md:caret-transparent md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="[align-items:normal] self-auto box-content caret-black gap-x-[normal] block col-end-auto col-start-auto grid-cols-none min-h-0 min-w-0 gap-y-[normal] w-auto md:items-center md:self-start md:aspect-auto md:box-border md:caret-transparent md:gap-x-6 md:grid md:col-end-[span_8] md:col-start-[span_8] md:grid-cols-[repeat(8,minmax(0px,1fr))] md:justify-items-center md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:gap-y-6 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:w-full md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                  {footerData.linkSections.map((section) => (
-                    <div key={section.id} className="self-auto box-content caret-black col-end-auto col-start-auto min-h-0 min-w-0 md:self-start md:aspect-auto md:box-border md:caret-transparent md:col-end-[span_2] md:col-start-[span_2] md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                      <h4 className="font-bold box-content caret-black md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">{section.title}</h4>
-                      <div aria-label={section.title} className="box-content caret-black md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                        {section.links.map((link) => (
-                          <div key={link.id} className="box-content caret-black md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                            <a href={link.href} className="box-content caret-black leading-[normal] md:aspect-auto md:box-border md:caret-transparent md:leading-8 md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] hover:text-neutral-500" title={link.title}>
-                              {link.text}
-                            </a>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-                <div className="box-content caret-black col-end-auto col-start-auto min-h-0 min-w-0 mr-0 py-0 md:aspect-auto md:box-border md:caret-transparent md:col-end-[span_8] md:col-start-[span_8] md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:mr-auto md:py-8 md:scroll-m-0 md:scroll-p-[auto]">
-                  <div className="box-content caret-black block leading-[normal] md:aspect-auto md:box-border md:caret-transparent md:flex md:leading-7 md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:m-auto md:scroll-m-0 md:scroll-p-[auto]">
-                    <div className="bg-gradient-to-r from-cyan-400 to-blue-500 text-white font-bold text-2xl px-4 py-2 rounded-lg shadow-lg">
-                      HomeHub
-                    </div>
-                    <div className="box-content caret-black min-h-0 min-w-0 ml-0 pt-0 md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:ml-12 md:pt-4 md:scroll-m-0 md:scroll-p-[auto]">
-                      <div className="box-content caret-black gap-x-[normal] block justify-normal gap-y-[normal] md:aspect-auto md:box-border md:caret-transparent md:gap-x-2 md:flex md:justify-start md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                        {footerData.legalLinks.slice(0, 3).map((link, index) => (
-                          <React.Fragment key={link.id}>
-                            <a href={link.href} className="text-base box-content caret-black inline min-h-0 min-w-0 md:text-sm md:aspect-auto md:box-border md:caret-transparent md:block md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] hover:text-neutral-500">{link.text}</a>
-                            {index < 2 && <div className="text-base box-content caret-black min-h-0 min-w-0 md:text-sm md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">|</div>}
-                          </React.Fragment>
-                        ))}
-                        <div className="text-base box-content caret-black min-h-0 min-w-0 md:text-sm md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">|</div>
-                      </div>
-                      <div className="box-content caret-black md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]"></div>
-                      <div className="box-content caret-black block justify-normal md:aspect-auto md:box-border md:caret-transparent md:hidden md:justify-center md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                        <span className="box-content caret-black md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                          <button type="button" className="text-[13.3333px] bg-zinc-100 caret-black text-center ml-0 md:text-sm md:aspect-auto md:bg-transparent md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:ml-px md:p-0 md:scroll-m-0 md:scroll-p-[auto]">
-                            Accessibility<span className="box-content caret-black leading-[normal] md:aspect-auto md:box-border md:caret-transparent md:leading-5 md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]"> Tools</span>
-                          </button>
-                        </span>
-                        <div className="text-base box-content caret-black md:text-sm md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">|</div>
-                      </div>
-                      <div className="box-content caret-black gap-x-[normal] block gap-y-[normal] text-start md:aspect-auto md:box-border md:caret-transparent md:gap-x-2 md:flex md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2 md:snap-align-none md:snap-normal md:snap-none md:text-center md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                        <div className="box-content caret-black gap-x-[normal] block min-h-0 min-w-0 gap-y-[normal] md:aspect-auto md:box-border md:caret-transparent md:gap-x-2 md:flex md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:gap-y-2 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                          <span className="box-content caret-black inline min-h-0 min-w-0 md:aspect-auto md:box-border md:caret-transparent md:block md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                            <button type="button" className="text-[13.3333px] bg-zinc-100 caret-black ml-0 md:text-sm md:aspect-auto md:bg-transparent md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:ml-px md:p-0 md:scroll-m-0 md:scroll-p-[auto]">
-                              Accessibility<span className="box-content caret-black leading-[normal] md:aspect-auto md:box-border md:caret-transparent md:leading-5 md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]"> Tools</span>
-                            </button>
-                          </span>
-                          <div className="text-base box-content caret-black min-h-0 min-w-0 md:text-sm md:aspect-auto md:box-border md:caret-transparent md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">|</div>
-                        </div>
-                        <a href="https://www.angi.com/do-not-sell" className="text-base box-content caret-black inline min-h-0 min-w-0 md:text-sm md:aspect-auto md:box-border md:caret-transparent md:block md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] hover:text-neutral-500">
-                          Do Not Sell or Share My Personal Information
-                        </a>
-                      </div>
-                      <div className="box-content caret-black text-start md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:text-left md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                        <span className="text-base box-content caret-black md:text-sm md:aspect-auto md:box-border md:caret-transparent md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">© Copyright 1995-2025, Angi. All Rights Reserved.</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="box-content caret-black col-end-auto col-start-auto min-h-0 min-w-0 md:aspect-auto md:box-border md:caret-transparent md:col-end-[span_4] md:col-start-[span_4] md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]">
-                <div className="box-content caret-black gap-x-[normal] block justify-normal gap-y-[normal] mt-0 md:aspect-auto md:box-border md:caret-transparent md:gap-x-7 md:flex md:justify-evenly md:overscroll-x-auto md:overscroll-y-auto md:gap-y-7 md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:mt-auto md:scroll-m-0 md:scroll-p-[auto]">
-                  {footerData.socialLinks.map((social) => (
-                    <a key={social.id} href={social.href} className="box-content caret-black inline max-w-none min-h-0 min-w-0 no-underline md:aspect-auto md:box-border md:caret-transparent md:block md:max-w-[39px] md:min-h-[auto] md:min-w-[auto] md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:underline md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto] hover:text-neutral-500 hover:no-underline">
-                      <img src={social.icon} alt={social.name} className="box-content caret-black max-w-none md:aspect-auto md:box-border md:caret-transparent md:max-w-full md:overscroll-x-auto md:overscroll-y-auto md:snap-align-none md:snap-normal md:snap-none md:decoration-auto md:underline-offset-auto md:[mask-position:0%] md:bg-left-top md:scroll-m-0 md:scroll-p-[auto]" />
-                    </a>
-                  ))}
-                </div>
-              </div>
+
+          {/* Links */}
+          <div>
+            <h3 className="font-semibold text-white mb-4">Services</h3>
+            <ul className="space-y-2">
+              {footerLinks.services.map((link, index) => (
+                <li key={index}>
+                  <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-white mb-4">Membership</h3>
+            <ul className="space-y-2">
+              {footerLinks.membership.map((link, index) => (
+                <li key={index}>
+                  <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="font-semibold text-white mb-4">Company</h3>
+            <ul className="space-y-2 mb-6">
+              {footerLinks.company.map((link, index) => (
+                <li key={index}>
+                  <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+
+            <div className="flex space-x-4">
+              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-slate-400 hover:text-cyan-400 transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div className="border-t border-slate-800 mt-12 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-slate-400 text-sm">
+              © 2025 NestiClub. All rights reserved.
+            </p>
+            <div className="flex space-x-6 mt-4 md:mt-0">
+              {footerLinks.legal.map((link, index) => (
+                <a key={index} href="#" className="text-slate-400 hover:text-cyan-400 text-sm transition-colors">
+                  {link}
+                </a>
+              ))}
             </div>
           </div>
         </div>
